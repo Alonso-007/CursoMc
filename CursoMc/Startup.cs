@@ -1,5 +1,7 @@
+using CursoMc.Model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
@@ -18,6 +20,9 @@ namespace CursoMc
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddDbContext<Contexto>(opcoes =>
+                                                opcoes.UseSqlServer(Configuration.GetConnectionString("Conexao")));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
