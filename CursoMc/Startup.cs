@@ -1,4 +1,6 @@
 using CursoMc.Model;
+using CursoMc.Repositories;
+using CursoMc.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -23,6 +25,9 @@ namespace CursoMc
 
             services.AddDbContext<Contexto>(opcoes =>
                                                 opcoes.UseSqlServer(Configuration.GetConnectionString("Conexao")));
+
+            services.AddScoped<CategoriaRepository>();
+            services.AddScoped<CategoriaService>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

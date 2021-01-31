@@ -1,4 +1,5 @@
 ﻿using CursoMc.Model;
+using CursoMc.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -12,6 +13,21 @@ namespace CursoMc.Controllers
     [ApiController]
     public class CategoriasController : ControllerBase
     {
+        private readonly CategoriaService _categoriaService;
+
+        public CategoriasController(CategoriaService categoriaService)
+        {
+            _categoriaService = categoriaService;
+        }
+
+        [HttpGet("{id}")]
+        public ActionResult<Categoria> Buscar(int id)
+        {
+            Categoria categoria = _categoriaService.Buscar(id);
+
+            return Ok(categoria);
+        }
+
         [HttpGet]
         public ActionResult<IEnumerable<Categoria>> Listar()
         {
