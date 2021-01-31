@@ -3,14 +3,16 @@ using CursoMc.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CursoMc.Migrations
 {
     [DbContext(typeof(Contexto))]
-    partial class ContextoModelSnapshot : ModelSnapshot
+    [Migration("20210131174745_EstadoCidade")]
+    partial class EstadoCidade
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,41 +50,6 @@ namespace CursoMc.Migrations
                     b.ToTable("Categorias");
                 });
 
-            modelBuilder.Entity("CursoMc.Model.Cidade", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<int>("EstadoId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Nome")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("EstadoId");
-
-                    b.ToTable("Cidades");
-                });
-
-            modelBuilder.Entity("CursoMc.Model.Estado", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("Nome")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Estados");
-                });
-
             modelBuilder.Entity("CursoMc.Model.Produto", b =>
                 {
                     b.Property<int>("Id")
@@ -114,22 +81,6 @@ namespace CursoMc.Migrations
                         .HasForeignKey("ProdutosId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("CursoMc.Model.Cidade", b =>
-                {
-                    b.HasOne("CursoMc.Model.Estado", "Estado")
-                        .WithMany("Cidades")
-                        .HasForeignKey("EstadoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Estado");
-                });
-
-            modelBuilder.Entity("CursoMc.Model.Estado", b =>
-                {
-                    b.Navigation("Cidades");
                 });
 #pragma warning restore 612, 618
         }
