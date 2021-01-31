@@ -32,6 +32,8 @@ namespace CursoMc
 
             services.AddScoped<CategoriaRepository>();
             services.AddScoped<CategoriaService>();
+            services.AddScoped<ClienteRepository>();
+            services.AddScoped<ClienteServico>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

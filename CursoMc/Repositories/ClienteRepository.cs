@@ -15,7 +15,8 @@ namespace CursoMc.Repositories
 
         public Cliente Buscar(int id)
         {
-            return _contexto.Clientes.Include(p => p.TipoCliente).Where(c => c.Id == id).SingleOrDefault();
+            return _contexto.Clientes.Include(p => p.TipoCliente).Include(e => e.Enderecos).ThenInclude(c => c.Cidade)
+                .Where(c => c.Id == id).SingleOrDefault();
         }
     }
 }
