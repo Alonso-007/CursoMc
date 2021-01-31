@@ -3,14 +3,16 @@ using CursoMc.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CursoMc.Migrations
 {
     [DbContext(typeof(Contexto))]
-    partial class ContextoModelSnapshot : ModelSnapshot
+    [Migration("20210131144705_TentandoArrumarMuitosParaMuitos")]
+    partial class TentandoArrumarMuitosParaMuitos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -20,15 +22,15 @@ namespace CursoMc.Migrations
 
             modelBuilder.Entity("CategoriaProduto", b =>
                 {
-                    b.Property<int>("CategoriasId")
+                    b.Property<int>("FichasId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProdutosId")
+                    b.Property<int>("FichasId1")
                         .HasColumnType("int");
 
-                    b.HasKey("CategoriasId", "ProdutosId");
+                    b.HasKey("FichasId", "FichasId1");
 
-                    b.HasIndex("ProdutosId");
+                    b.HasIndex("FichasId1");
 
                     b.ToTable("CategoriaProduto");
                 });
@@ -70,13 +72,13 @@ namespace CursoMc.Migrations
                 {
                     b.HasOne("CursoMc.Model.Categoria", null)
                         .WithMany()
-                        .HasForeignKey("CategoriasId")
+                        .HasForeignKey("FichasId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("CursoMc.Model.Produto", null)
                         .WithMany()
-                        .HasForeignKey("ProdutosId")
+                        .HasForeignKey("FichasId1")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
