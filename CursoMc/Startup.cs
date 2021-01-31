@@ -26,6 +26,10 @@ namespace CursoMc
             services.AddDbContext<Contexto>(opcoes =>
                                                 opcoes.UseSqlServer(Configuration.GetConnectionString("Conexao")));
 
+            services.AddControllers().AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
+
             services.AddScoped<CategoriaRepository>();
             services.AddScoped<CategoriaService>();
 

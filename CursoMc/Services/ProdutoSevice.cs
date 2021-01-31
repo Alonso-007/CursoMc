@@ -13,7 +13,7 @@ namespace CursoMc.Services
             _produtoRepository = produtoRepository;
         }
 
-        public List<Produto> Buscar(int id)
+        public Produto Buscar(int id)
         {
             var obj = _produtoRepository.Buscar(id);
             return obj;

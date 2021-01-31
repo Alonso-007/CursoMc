@@ -1,8 +1,6 @@
 ﻿using CursoMc.Model;
-using System;
-using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace CursoMc.Repositories
 {
@@ -17,7 +15,7 @@ namespace CursoMc.Repositories
 
         public Categoria Buscar(int id)
         {
-            return _contexto.Categorias.Where(w => w.Id == id).FirstOrDefault();
+            return _contexto.Categorias.Include(p => p.Produtos).Where(c => c.Id == id).SingleOrDefault();
         }
     }
 }

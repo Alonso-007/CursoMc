@@ -8,7 +8,7 @@ namespace CursoMc.Model
         public string Nome { get; set; }
         public ICollection<Produto> Produtos { get; set; }
 
-        public override int GetHashCode()
+        /*public override int GetHashCode()
         {
             int prime = 31;
             int result = 1;
@@ -36,6 +36,6 @@ namespace CursoMc.Model
                 }
             }
             return true;
-        }
+        }*/
     }
 }

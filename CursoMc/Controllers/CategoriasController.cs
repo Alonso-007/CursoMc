@@ -1,11 +1,7 @@
 ﻿using CursoMc.Model;
 using CursoMc.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CursoMc.Controllers
 {
@@ -25,7 +21,11 @@ namespace CursoMc.Controllers
         {
             Categoria categoria = _categoriaService.Buscar(id);
 
-            return Ok(categoria);
+            if (categoria == null)
+                return NotFound("Categoria nao encontrada");
+
+            return Ok(new { categoria.Id, categoria.Nome, categoria.Produtos });
+            //return Ok(categoria);
         }
 
         [HttpGet]

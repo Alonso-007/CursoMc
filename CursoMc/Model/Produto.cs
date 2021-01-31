@@ -9,7 +9,7 @@ namespace CursoMc.Model
         public double Preco { get; set; }
         public ICollection<Categoria> Categorias { get; set; }
 
-        public override int GetHashCode()
+        /*public override int GetHashCode()
         {
             int prime = 31;
             int result = 1;
@@ -37,6 +37,6 @@ namespace CursoMc.Model
                 }
             }
             return true;
-        }
+        }*/
     }
 }
