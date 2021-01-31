@@ -10,5 +10,8 @@ namespace CursoMc.Model
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<Estado> Estados { get; set; }
         public DbSet<Cidade> Cidades { get; set; }
+        public DbSet<TipoCliente> TipoClientes { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Endereco> Enderecos { get; set; }
     }
 }
