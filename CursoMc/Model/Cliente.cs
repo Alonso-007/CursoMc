@@ -12,5 +12,6 @@ namespace CursoMc.Model
         public TipoCliente TipoCliente { get; set; }
         public ICollection<Endereco> Enderecos { get; set; }
         public string Telefone { get; set; }
+        public ICollection<Pedido> Pedidos { get; set; }
     }
 }

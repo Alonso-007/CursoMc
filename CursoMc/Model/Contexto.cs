@@ -13,5 +13,9 @@ namespace CursoMc.Model
         public DbSet<TipoCliente> TipoClientes { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Endereco> Enderecos { get; set; }
+        public DbSet<EstadoPagamento> EstadoPagamentos { get; set; }
+        public DbSet<Pedido> Pedidos { get; set; }
+        public DbSet<PagamentoComBoleto> PagamentoComBoletos { get; set; }
+        public DbSet<PagamentoComCartao> PagamentoComCartaos { get; set; }
     }
 }
