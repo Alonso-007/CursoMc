@@ -17,5 +17,6 @@ namespace CursoMc.Model
         public DbSet<Pedido> Pedidos { get; set; }
         public DbSet<PagamentoComBoleto> PagamentoComBoletos { get; set; }
         public DbSet<PagamentoComCartao> PagamentoComCartaos { get; set; }
+        public DbSet<ItemPedido> ItemPedidos { get; set; }
     }
 }

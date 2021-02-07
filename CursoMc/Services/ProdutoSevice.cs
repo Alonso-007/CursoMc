@@ -1,6 +1,5 @@
 ﻿using CursoMc.Model;
 using CursoMc.Repositories;
-using System.Collections.Generic;
 
 namespace CursoMc.Services
 {
